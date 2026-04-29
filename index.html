@@ -1,31 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Project Screenshots</title>
-  <!-- Use a modern Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf8;
+      --text: #1a1a18;
+      --muted: #8a8a82;
+      --accent: #2c2c28;
+      --border: #e4e4de;
+      --hover-bg: #f0f0ea;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      background-color: #f9f9f9;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 64px 40px;
     }
-    h2 {
-      font-size: 28px;
-      margin-top: 20px;
+
+    header {
+      max-width: 900px;
+      margin: 0 auto 56px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
     }
-    img {
-      margin: 15px;
-      width: 45%;
-      max-width: 600px;
+
+    .header-left h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .header-left p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .counter {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+    }
+
+    .grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      background: var(--hover-bg);
+    }
+
+    /* Placeholder when images don't load */
+    .card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #f0f0ea 0%, #e8e8e0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 20px 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-index {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 40px 20px; }
+      .grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 8px; }
+      .counter { font-size: 2rem; }
     }
   </style>
 </head>
-
 <body>
-  <h2>Project Screenshots</h2>
-  <img src="Screenshot 2025-08-21 203319.png" alt="Screenshot 1" width="45%">
-  <img src="Screenshot 2025-08-21 203336.png" alt="Screenshot 2" width="45%">
+  <header>
+    <div class="header-left">
+      <h1>Project Screenshots</h1>
+      <p>Visual overview</p>
+    </div>
+    <div class="counter">02</div>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-img-placeholder"><img src="Screenshot 2025-08-21 203319.png" alt="Screenshot 1" width="45%"></div>
+      <div class="card-body">
+        <div class="card-index">01</div>
+        <div class="card-title">Screenshot</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img-placeholder"><img src="Screenshot 2025-08-21 203336.png" alt="Screenshot 2" width="45%"></div>
+      <div class="card-body">
+        <div class="card-index">02</div>
+        <div class="card-title">Screenshot</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
